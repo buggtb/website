@@ -2,7 +2,6 @@
   import Avatars from "./avatars.svelte";
   import OpenGraph from "./open-graph.svelte";
   import { authors, authorSocialMediaLinks } from "$lib/contents/authors";
-  import OnThisPageNav from "./on-this-page-nav.svelte";
   import "$lib/assets/markdown-commons.scss";
 
   export let baseUrl: string;
