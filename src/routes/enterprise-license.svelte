@@ -240,7 +240,7 @@
       </label>
     </div>
 
-    <label class="mt-macro">
+    <label class="mt-macro half">
       <p>
         Optionally, tell us more about your interest in Gitpod. What challenges
         are you looking to solve? How can we help?
