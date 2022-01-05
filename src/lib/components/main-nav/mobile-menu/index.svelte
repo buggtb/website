@@ -1,13 +1,13 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { showHideOverflowY } from "$lib/utils/helpers";
-  import ContactLink from "../contact-link.svelte";
 
   import LoginButton from "../login-button.svelte";
   import NavItem from "../nav-item.svelte";
   import SignUpButton from "../sign-up-button.svelte";
   import DashboardButton from "../dashboard-button.svelte";
   import menuState from "./state";
+  import ContactLinkMobile from "./contact-link-mobile.svelte";
 
   export let navItems = [];
   export let isLoggedIn: boolean;
@@ -37,21 +37,25 @@
       @apply hidden;
     }
   }
+
+  div :global(a:not([class*="button"])) {
+    @apply text-dark-grey;
+  }
 </style>
 
 {#if $menuState}
   <div
-    class="nav-items absolute flex flex-col pt-10 pb-16 w-screen items-center bg-off-white space-y-xx-small z-10 shadow-md"
+    class="nav-items absolute flex flex-col py-x-small w-screen items-center bg-off-white space-y-xx-small z-10 shadow-md"
   >
     {#each navItems as navItem}
       <NavItem {navItem} on:click={toggle} />
     {/each}
-    <ContactLink on:click={toggle} />
+    <ContactLinkMobile on:click={toggle} />
     {#if isLoggedIn}
-      <DashboardButton class="text-lg h-8 w-28" />
+      <DashboardButton class="text-lg h-8 w-28 button" />
     {:else}
       <LoginButton />
-      <SignUpButton class="text-lg h-8 w-28" />
+      <SignUpButton class="text-lg h-8 w-28 button" />
     {/if}
   </div>
 {/if}
