@@ -187,3 +187,18 @@ github:
 
 The `addComment` and `addBadge` behaviours are not mutually exclusive (i.e. enabling one does not disable the other).
 If you don't want the comments to be added, disable them using `addComment: false`.
+
+## Access to environment variables
+
+It is not necesarily best practice to have user specific environment variables in a prebuild init block, but sometimes
+there are build time requirements that mean certain tokens need setting or files need creating. Environment variables
+defined within your Variable preferences are no imported by default but they can be accessed with the following command
+within an init block:
+
+```yaml
+tasks:
+  - init: |
+      eval $(gp env -e)
+```
+
+at which point the available environment variables will be installed into the rest of you shell script.
