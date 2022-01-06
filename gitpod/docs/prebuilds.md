@@ -201,4 +201,5 @@ tasks:
       eval $(gp env -e)
 ```
 
-at which point the available environment variables will be installed into the rest of you shell script.
+at which point the available environment variables will be installed into the rest of you shell script and can be
+accessed normally.
